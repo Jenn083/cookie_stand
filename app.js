@@ -5,7 +5,6 @@ var firstAndPike = {
   maxCustPerHour: 65,
   avgCookiesPerHour: 6.4,
   cookiesSoldPerHour: [],
-  total: 0,
 
   randCustPerHour: function () {
     console.log('before running loop in randCustPerHour method: ' + this.cookiesSoldPerHour);
@@ -19,10 +18,11 @@ var firstAndPike = {
     console.log('after running loop in randCustPerHour method: ' + this.cookiesSoldPerHour);
   },
   sumTotal: function() {
-    for(var i=0; i < hours.length;i++) {
-      var sum = this.cookiesSoldPerHour[i];
-      return sum;
+    var sum =0;
+    for(var i=0; i < this.cookiesSoldPerHour.length;i++) {
+      sum += this.cookiesSoldPerHour[i];
     }
+    return sum;
   },
   render: function() {
     this.randCustPerHour();// before you render so that there's content to render
@@ -35,8 +35,10 @@ var firstAndPike = {
       liEl.textContent = hours[i] + this.cookiesSoldPerHour[i];
       ulEl.appendChild(liEl);
 
-
     }
+    var pEl =document.createElement('p');
+    pEl.textContent = 'Total: ' + this.sumTotal();
+    document.body.appendChild(pEl);
   }
 
 }
