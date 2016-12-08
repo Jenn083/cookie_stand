@@ -2,9 +2,44 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>Front Facing Page</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
   </head>
   <body>
 
+    <form id="salmon-cookie-form">
+        <fieldset>
+          <legend>Customer submission form</legend>
+
+          <label for="Store location"> Store Location: </label>
+          <input name="Store Location" type="text" />
+
+          <label for="Min. Cookies"> Minimum Cookies Sold: </label>
+          <input name="Min. Cookies" type="number"/>
+
+          <label for="Max. Cookies"> Maximum Cookies Sold: </label>
+          <input name="Max. Cookies" type="number" />
+
+          <label for="Avg. Cookies"> Average Cookies Sold: </label>
+          <input name="Avg. Cookies" type="number" />
+
+          <button type="submit">Submit</button>
+        </fieldset>
+      </form>
+    <table id="storeJs"></table>
+    <div>
+
+    </div>
+
+      <ul id="chat-list"></ul>
+
+
+
+
+
+
+
+
+    <script src="app.js"></script>
   </body>
 </html>
