@@ -30,7 +30,6 @@ function Store(locationName,minCustPerHour,maxCustPerHour,avgCookiesPerCust) {
   this.calCookiesPerHour();
   this.sumTotal();
   allStores.push(this);
- // this.render();
 
   this.render = function () {
     storeTable = document.getElementById('storeJs');
@@ -84,7 +83,7 @@ function makeHeaderRow () {   //function for headerRow
   storeTable.appendChild(trEl);
 }
 
-makeHeaderRow();
+//makeHeaderRow();
 
 function makeAllStoreRow () {
   for (var i = 0; i < allStores.length; i++) {
@@ -93,7 +92,7 @@ function makeAllStoreRow () {
 }
 
 
-makeAllStoreRow();
+//makeAllStoreRow();
 
 function makeFooterRow () {
   storeTable = document.getElementById('storeJs');
@@ -118,4 +117,7 @@ function makeFooterRow () {
   }
 }
 
+
+makeHeaderRow();
+makeAllStoreRow();
 makeFooterRow();

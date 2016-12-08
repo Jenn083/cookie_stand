@@ -1,6 +1,5 @@
-
 * {
-  color: white;
+  color: black;
 }
 
 
@@ -23,15 +22,4 @@ img {
   margin: 0 auto;
   width: 50%;
   display: block;
-}
-h1, h3 {
-  text-align: right;
-}
-
-body {
-  background-color: black;
-}
-
-button {
-  
 }
