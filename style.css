@@ -1,10 +1,13 @@
 
 * {
-  color: white;
+  color: black;
 }
 
 
+form {
 
+  margin-bottom: 50px;
+}
 table {
 	border: 1px solid black;
 }
@@ -29,9 +32,9 @@ h1, h3 {
 }
 
 body {
-  background-color: black;
+  background-color: cyan;
 }
 
 button {
-  
+
 }
