@@ -5,9 +5,9 @@ var allStores = []//contains store objects
 
 function Store(location,minCustPerHour,maxCustPerHour,avgCookiesPerCust) {
   this.location = location;
-  this.minCustPerHour = minCustPerHour;
-  this.maxCustPerHour = maxCustPerHour;
-  this.avgCookiesPerCust = avgCookiesPerCust;
+  this.minCustPerHour = parseInt(minCustPerHour);
+  this.maxCustPerHour = parseInt(maxCustPerHour);
+  this.avgCookiesPerCust = parseInt(avgCookiesPerCust);
   this.totalCookies = 0;
   this.cookiesSoldPerHour = [];//contains 14 numbers; total cookies/hour= rand cust/hour* avg cookies/cust
 
@@ -18,7 +18,7 @@ function Store(location,minCustPerHour,maxCustPerHour,avgCookiesPerCust) {
       this.cookiesSoldPerHour.push(cookiesPerHourSold);
     }
   }
-
+//Math.floor(Math.random() * (max - min + 1)) + min;
   this.sumTotal = function () { //this function gives me total # of cookies at a location.
     for (var i = 0; i < hours.length; i++) {
       this.totalCookies += this.cookiesSoldPerHour[i];
@@ -129,28 +129,26 @@ var clearTable = document.getElementById('storeJs')
 
 
 function handlesSubmitButton(event) {//create event(form) handler
-
+  clearTable.innerHTML = ''
   event.preventDefault();
   if (!event.target.location.value || !event.target.minCookies.value || !event.target.maxCookies.value || !event.target.avgCookies.value) {
     return alert('Fields cannot be empty!');
   }
 
-  var newStore = new Store(event.target.location.value, event.target.minCookies.value, event.target.maxCookies.value,event.target.avgCookies.value);
+  new Store(event.target.location.value, event.target.minCookies.value, event.target.maxCookies.value,event.target.avgCookies.value);
   event.target.location.value = null;
   event.target.minCookies.value = null;
   event.target.maxCookies.value = null;
   event.target.avgCookies.value = null;
 
-  allStores.push(newStore);
   globalRender();
 }
 scForm.addEventListener('submit', handlesSubmitButton);
 
-clearTable.addEventListener('click', function() {
-  scForm.innerHTML = '';
 
-});
+
 function globalRender() {
+
   makeHeaderRow();
   makeAllStoreRow();
   makeFooterRow();
