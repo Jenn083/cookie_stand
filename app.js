@@ -1,10 +1,10 @@
 'use strict';
 
 var hours = ['6am','7am','8am','9am','10am','11am','12pm','1pm','2pm','3pm','4pm','5pm','6pm','7pm','8pm']
-var allStores = []//5 totals one for each store per day
+var allStores = []//contains store objects
 
-function Store(locationName,minCustPerHour,maxCustPerHour,avgCookiesPerCust) {
-  this.locationName = locationName;
+function Store(location,minCustPerHour,maxCustPerHour,avgCookiesPerCust) {
+  this.location = location;
   this.minCustPerHour = minCustPerHour;
   this.maxCustPerHour = maxCustPerHour;
   this.avgCookiesPerCust = avgCookiesPerCust;
@@ -28,14 +28,26 @@ function Store(locationName,minCustPerHour,maxCustPerHour,avgCookiesPerCust) {
 
   this.calCookiesPerHour();//called this function
   this.sumTotal(); //called this function
-  allStores.push(this); //push this object into allStores array; a total of 5 stores.
+  // if store exist
+  var data = false;
+  for (var i=0; i<allStores.length;i++) {
+    if(allStores[i].location === location) {
+      data = true;
+      allStores[i] = this; //if location is the same as the new location, then set the new location to allStores[i]
+      break;
+    }
+  }
+
+  if (!data) {  // if data is false then
+    allStores.push(this);//push the new data into allStores array.
+  }
 
   this.render = function () {//make render function so that when you call render() it will do this calculation
     var storeTable = document.getElementById('storeJs');// <table id=storeJs></table> grab id and assign to storeTable
     var trEl = document.createElement('tr'); //<tr></tr> created the row tag
 
     tdEl = document.createElement('td');//<td></td> created the data tag
-    tdEl.textContent = this.locationName;//add content to data tag; all locations
+    tdEl.textContent = this.location;//add content to data tag; all locations
     trEl.appendChild(tdEl);//append content to <td> tag
 
     for (var i = 0; i < hours.length; i++) {//looping through hours array
@@ -91,26 +103,58 @@ function makeFooterRow () {//function to make footer row
   var storeTable = document.getElementById('storeJs');//grab this id for this table
   var trEl= document.createElement('tr');//create tr tag and assign it to var trEl
   var thEl = document.createElement('th');//create th tag and assign it to var trEl
-  thEl.textContent = 'Total Per Hour';//
-  trEl.appendChild(thEl);
-  storeTable.appendChild(trEl);
+  thEl.textContent = 'Total Cookies Per Hour';//add content
+  trEl.appendChild(thEl);//append footer element to the table row
+  storeTable.appendChild(trEl);//append the entire footer row to the table
 
-  for(var i=0; i <hours.length; i++) {
-    var hourTotal = 0;
-    for(var j = 0; j <allStores.length; j++) {
+  for(var i=0; i <hours.length; i++) {//loop through the hours array
+    var hourTotal = 0;//assign 0 to hourTotal
+    for(var j = 0; j <allStores.length; j++) {//then loop through the allStores array
 
-      hourTotal += allStores[j].cookiesSoldPerHour[i];
+      hourTotal += allStores[j].cookiesSoldPerHour[i];// add the allStores array with the cookiesSoldPerHour array to get the total hourTotal
 
     }
-    storeTable = document.getElementById('storeJs');
-    thEl = document.createElement('th');
-    thEl.textContent = hourTotal;
-    trEl.appendChild(thEl);
-    storeTable.appendChild(trEl);
+    //storeTable = document.getElementById('storeJs');//
+    thEl = document.createElement('th');//
+    thEl.textContent = hourTotal;//add another footer content for hourTotal
+    trEl.appendChild(thEl);//add the footer element to the table row tag
+    storeTable.appendChild(trEl);//append the row to the tabel
   }
+}//end of makeFooterRow();
+
+
+var scForm = document.getElementById('salmon-cookie-form');
+var clearTable = document.getElementById('storeJs')
+//var clearForm = document.getElementById('salmon-cookie-form');
+
+
+function handlesSubmitButton(event) {//create event(form) handler
+
+  event.preventDefault();
+  if (!event.target.location.value || !event.target.minCookies.value || !event.target.maxCookies.value || !event.target.avgCookies.value) {
+    return alert('Fields cannot be empty!');
+  }
+
+  var newStore = new Store(event.target.location.value, event.target.minCookies.value, event.target.maxCookies.value,event.target.avgCookies.value);
+  event.target.location.value = null;
+  event.target.minCookies.value = null;
+  event.target.maxCookies.value = null;
+  event.target.avgCookies.value = null;
+
+  allStores.push(newStore);
+  globalRender();
+}
+scForm.addEventListener('submit', handlesSubmitButton);
+
+clearTable.addEventListener('click', function() {
+  scForm.innerHTML = '';
+
+});
+function globalRender() {
+  makeHeaderRow();
+  makeAllStoreRow();
+  makeFooterRow();
 }
 
-
-makeHeaderRow();
-makeAllStoreRow();
-makeFooterRow();
+globalRender();
+//create event listener
