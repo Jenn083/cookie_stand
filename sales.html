@@ -8,6 +8,28 @@
   <body>
     <img src="https://raw.githubusercontent.com/Jenn083/seattle-201d17/master/class-06-dom-objects-domain_modeling/lab/assets/salmon.png">
     <h1>Cookies Needed By Location Each Day</h1>
+
+    <form id="salmon-cookie-form">
+      
+        <fieldset>
+
+          <label for="location"> Store Location: </label>
+          <input name="location" type="text" required placeholder="Store Location"/>
+
+          <label for="minCookies"> Minimum Cookies Sold: </label>
+          <input name="minCookies" type="number" required placeholder="Minimum #Customers"/>
+
+          <label for="maxCookies"> Maximum Cookies Sold: </label>
+          <input name="maxCookies" type="number" required placeholder="Maximum #Customers"/>
+
+          <label for="avgCookies"> Average Cookies Sold: </label>
+          <input name="avgCookies" type="number" required placeholder="Average Cookies Sold"/>
+
+          <button type="submit" placeholder="Submit">Submit</button>
+        </fieldset>
+      </form>
+
+    <table id="storeJs"></table>
     <table id="storeJs"></table>
     <script src="app.js"></script>
   </body>

@@ -148,7 +148,6 @@ scForm.addEventListener('submit', handlesSubmitButton);
 
 
 function globalRender() {
-
   makeHeaderRow();
   makeAllStoreRow();
   makeFooterRow();
