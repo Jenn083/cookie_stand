@@ -1,13 +1,9 @@
-
 * {
   color: black;
 }
 
 
-form {
 
-  margin-bottom: 50px;
-}
 table {
 	border: 1px solid black;
 }
@@ -26,15 +22,4 @@ img {
   margin: 0 auto;
   width: 50%;
   display: block;
-}
-h1, h3 {
-  text-align: right;
-}
-
-body {
-  background-color: pink;
-}
-
-button {
-
 }
