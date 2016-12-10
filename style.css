@@ -41,6 +41,8 @@ div.img_products{
 	border: 2px solid black;
 
 }
+
+
 /*img.medium{
   width: 350px;
   height: 250px;
@@ -54,8 +56,17 @@ figcaption {
   background-repeat: no-repeat;
   background-image: url(https://raw.githubusercontent.com/codefellows/seattle-201d17/master/class-09-css_wireframe_part_1/lab/assets/family.jpg);
 }*/
+.cat {
+	position: relative;
+}
+
 .title{
 	float:left;
+	position: absolute;
+	top:260px;
+	padding-right:60px;
+	font-family:monospace;
+	font-size: 30px;
 }
 img.small {
   width:350px;
