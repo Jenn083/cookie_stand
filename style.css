@@ -1,28 +1,23 @@
-/**{
-	border: 1px solid black;
-}*/
+*{
+font-family:monospace;
 
-
+}
 
 nav {
 	width: 100%;
-	height: 50px;
+	height: 70px;
 	text-align: center;
 	padding-top: 10px;
-
+	font-size: 20px;
 	display: block;
 	background-color: black;
-	color: white;
 	clear: both;
 }
-img.large {
-  width: 600px;
-  /*height:500px;*/
-}
-img.hero_img {
-  width:100%;
-	float:right;
 
+img.hero_img {
+  width:65%;
+	float:right;
+	height:570px;
 }
 .img_products{
 	float:left;
@@ -33,29 +28,26 @@ img.hero_img {
 figure img{
 	width: 267px;
 	height:150px;
-	/*border:1px solid black;*/
 	padding-top: 23px;
 
 }
 div.img_products{
 	border: 2px solid black;
-
 }
 
-
-/*img.medium{
-  width: 350px;
-  height: 250px;
-}*/
 figcaption {
 	text-align: center;
 }
+#mission {
+	text-align: left;
+	font-size: 36px;
+}
+.mission{
+ text-align: center;
+ padding-top: 20px;
+ float: right;
+}
 
-
-/*.background {
-  background-repeat: no-repeat;
-  background-image: url(https://raw.githubusercontent.com/codefellows/seattle-201d17/master/class-09-css_wireframe_part_1/lab/assets/family.jpg);
-}*/
 .cat {
 	position: relative;
 }
@@ -63,52 +55,61 @@ figcaption {
 .title{
 	float:left;
 	position: absolute;
-	top:260px;
+	top:160px;
 	padding-right:60px;
 	font-family:monospace;
 	font-size: 30px;
+	margin-left:50px;
 }
-img.small {
+img.family {
   width:350px;
 	margin-top: 10px;
-
+	float: left;
+	border: 2px solid black;
+	margin-right: 20px;
 }
-
-
-
-nav {
-	width: 100%;
-	height: 50px;
-	text-align: center;
-	padding-top: 10px;
-
-	display: block;
-	background-color: black;
-	color: white;
-}
-
 
 nav li a:link {
-	color: red;
+	color: yellow;
 	text-decoration: none;
 }
-nav a:visited {
+
+nav li a:visited {
 	color: grey;
 }
 
-nav a:hover {
-	color: pink;
+nav li a:hover {
+	color: green;
 }
 
-nav ul li {
+nav li {
 	display: inline;
 	margin-right: 10px;
 	list-style: none;
-	color: white;
-
+	text-decoration: none;
+	padding-right: 30px;
 }
-.about {
+
+.about_box {
+	padding-top: 20px;
+	padding-right: 10px;
+}
+#home {
+	background: #faf8f9;
+}
+#about{
+	text-align: center;
+	font-size: 36px;
+}
+
+#about #about_para {
 	float:right;
+}
+#products {
+	clear: both;
+	padding-top: 20px;
+	text-align: left;
+	font-size: 36px;
 }
 
 i {
@@ -117,20 +118,17 @@ i {
 .email {
 	text-decoration: none;
 	color: blue;
-
 }
 a:visited.email{
-	color: red;
+	color: green;
 }
 a:hover.email{
-	color: pink;
+	color: black;
 }
 
 #contact {
 	text-align: center;
 	clear:both;
-
-}
-
+	padding-top: 20px;
 
 }
